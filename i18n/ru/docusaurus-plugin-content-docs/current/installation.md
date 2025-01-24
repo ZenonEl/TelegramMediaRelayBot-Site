@@ -10,63 +10,125 @@
 | yt-dlp          | 2024.04.09+  | Должен быть в PATH или рядом с исполняемым файлом |
 
 ### Поддерживаемые ОС
-- **Linux** (x64): Для разработки и использования я использовал Linux Mint. Поэтому похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
-- **Windows** 10/11 (x64) - требуется ручная сборка а также дополнительная проверка
+- **Linux** (x64): Для разработки и использования я использовал Linux Mint. Поэтому, похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
+- **Windows** 10/11 (x64) - требуется ручная сборка, а также дополнительная проверка
 - **macOS** (x64/ARM) - не проверялась
 
 ## 🚀 Быстрый старт для Linux
 
-### 1. Установка зависимостей
+### 1. Установка зависимостей для запуска из исходников
 ```bash
 # Для Ubuntu/Debian
 sudo apt update && sudo apt install -y \
     git \
     mysql-server \
-    python3-pip \
     libicu-dev
-
-pip3 install yt-dlp
 
 # Установка .NET 8
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt update && sudo apt install -y dotnet-sdk-8.0
-```
-### 2. Настройка MySQL
 
-```SQL
-CREATE DATABASE telegram_media;
-CREATE USER 'media_bot'@'localhost' IDENTIFIED BY 'StrongPassword123!';
-GRANT ALL PRIVILEGES ON telegram_media.* TO 'media_bot'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-### 3. Сборка проекта
-
-```bash
+# Клонирование репозитория
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
 
-# Сборка standalone-версии
-dotnet publish -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true
+# Скачивание yt-dlp в корень проекта
+wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp
+chmod +x yt-dlp
+
+# Запуск проекта
+# Перед запуском убедитесь, что выполнены все шаги настройки
+dotnet run --project TelegramMediaRelayBot.csproj
+# Или
+dotnet restore
+dotnet run
+```
+#### 1.1 Запуск через исполняемый файл
+
+1. Скачайте последний [релиз](https://github.com/ZenonEl/TelegramMediaRelayBot/releases/latest)
+2. Распакуйте архив в удобное место 
+3. Создайте файл appsettings.json:
+    - Используйте пример конфигурации из файла appsettings.json.example
+4. Скачайте yt-dlp:
+    ```bash
+    wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp
+    chmod +x yt-dlp
+    ```
+5. Запустите исполняемый файл:
+    ```bash
+    ./TelegramMediaRelayBot
+    ```
+
+
+---
+
+### **2. Настройка MySQL**
+
+#### **2.1 Создание базы данных и пользователя**
+
+Выполните следующие команды в MySQL для создания базы данных и пользователя:
+
+```sql
+-- Создание базы данных
+CREATE DATABASE TelegramMediaRelayBot;
+
+-- Создание пользователя и установка пароля
+CREATE USER 'media_bot'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+
+-- Предоставление прав пользователю на базу данных
+GRANT ALL PRIVILEGES ON TelegramMediaRelayBot.* TO 'media_bot'@'localhost';
+
+-- Применение изменений
+FLUSH PRIVILEGES;
 ```
 
-4. Конфигурация
+---
+
+#### **2.2 Настройка конфигурации**
+
+После настройки MySQL, обновите конфигурационный файл `appsettings.json`. Убедитесь, что следующие параметры соответствуют вашей настройке MySQL:
+
+```json
+{
+    "AppSettings": {
+        "SqlConnectionString": "Server=localhost;Database=TelegramMediaRelayBot;User ID=media_bot;Password=StrongPassword123!;",
+        "DatabaseName": "TelegramMediaRelayBot"
+    }
+}
+```
+
+- **Server**: Адрес сервера MySQL (обычно `localhost`, если MySQL установлен на том же сервере или ПК).
+- **Database**: Название базы данных (в данном случае `TelegramMediaRelayBot`).
+- **User ID**: Имя пользователя (в данном случае `media_bot`).
+- **Password**: Пароль пользователя (в данном случае `StrongPassword123!`).
+
+---
+
+#### **2.3 Проверка подключения**
+
+После настройки MySQL и обновления конфигурации, убедитесь, что бот может подключиться к базе данных. Запустите бот и проверьте логи на наличие ошибок подключения.
+
+---
+
+### 3. Работа с конфигурацией
 ```bash
-
-
-cp bin/Release/net8.0/linux-x64/publish/appsettings.json.example \
-   bin/Release/net8.0/linux-x64/publish/appsettings.json
+cp appsettings.json.example \
+   appsettings.json
 
 # Редактируем конфиг
-nano bin/Release/net8.0/linux-x64/publish/appsettings.json
+nano ./appsettings.json
 ```
 Пример конфигурации:
+    - Если вам не нужен Tor то оставьте "Proxy" пустым ("") и в Tor.Enabled напишите false
+    - В остальном же, кроме значений в блоке "AppSettings" больше можно ничего не менять.
+    - Токен для "TelegramBotToken" можно получить только в официальном боте телеграм [BotFather](https://t.me/BotFather)
+    - Для блока "AccessPolicy" имеется отдельное руководство.
 ```json
 {
     "AppSettings": {
         "TelegramBotToken": "1234:abcd",
-        "SqlConnectionString": "Server=IPAddress;Database=DatabaseName;User ID=UserName;Password=UserPassword;",
+        "SqlConnectionString": "Server=localhost;Database=TelegramMediaRelayBot;User ID=media_bot;Password=StrongPassword123!;",
         "DatabaseName": "TelegramMediaRelayBot",
         "Language": "en-US",
         "Proxy": "socks5://127.0.0.1:9050",
@@ -88,7 +150,7 @@ nano bin/Release/net8.0/linux-x64/publish/appsettings.json
         "LogLevel": "Information",
         "ShowVideoDownloadProgress": false,
         "ShowVideoUploadProgress": false
-    }
+    },
     "AccessPolicy": {
         "Enabled": true,
 
@@ -104,27 +166,4 @@ nano bin/Release/net8.0/linux-x64/publish/appsettings.json
         }
     }
 }
-```
-
-### 5. Запуск системы
-```bash
-# Запуск как служба
-sudo cp bin/Release/net8.0/linux-x64/publish/TelegramMediaRelayBot /usr/local/bin/
-sudo tee /etc/systemd/system/media-bot.service > /dev/null <<EOL
-[Unit]
-Description=Telegram Media Relay Bot
-After=network.target mysql.service
-
-[Service]
-ExecStart=/usr/local/bin/TelegramMediaRelayBot
-WorkingDirectory=/usr/local/bin/
-Restart=always
-User=media-bot
-
-[Install]
-WantedBy=multi-user.target
-EOL
-
-sudo systemctl daemon-reload
-sudo systemctl enable --now media-bot
 ```
