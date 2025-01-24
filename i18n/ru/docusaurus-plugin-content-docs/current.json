@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Основные разделы": {
+    "message": "Основные разделы",
+    "description": "The label for category Основные разделы in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Расширенные настройки": {
+    "message": "Расширенные настройки",
+    "description": "The label for category Расширенные настройки in sidebar docsSidebar"
+  }
+}

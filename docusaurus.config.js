@@ -1,11 +1,12 @@
 import { themes as prismThemes } from 'prism-react-renderer';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'TelegramMediaRelayBot Docs',
   tagline: 'Документация для TelegramMediaRelayBot',
   favicon: 'img/favicon.ico',
   url: 'https://zenonel.github.io',
-  baseUrl: '/',
+  baseUrl: '/', // Исправленный baseUrl
   organizationName: 'ZenonEl',
   projectName: 'TelegramMediaRelayBot-Site',
   onBrokenLinks: 'throw',
@@ -13,6 +14,18 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ru'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+      },
+      ru: {
+        label: 'Русский',
+        direction: 'ltr',
+        htmlLang: 'ru-RU',
+      },
+    },
   },
 
   presets: [
@@ -20,8 +33,8 @@ const config = {
       'classic',
       {
         docs: {
+          routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/ZenonEl/TelegramMediaRelayBot-Site/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -31,12 +44,14 @@ const config = {
   ],
 
   themeConfig: {
+    defaultMode: 'light',
+    respectPrefersColorScheme: true,
     navbar: {
       title: 'TelegramMediaRelayBot',
       items: [
         {
-          to: '/docs/',
-          label: 'Документация',
+          to: '/docs/', // Относительный путь
+          label: 'docsLabel', // Ключ перевода
           position: 'left',
         },
         {
@@ -50,6 +65,10 @@ const config = {
         },
       ],
     },
+    metadata: [
+      { name: 'og:locale', content: 'en_US' },
+      { name: 'og:locale:alternate', content: 'ru_RU' },
+    ],
     footer: {
       style: 'dark',
       links: [
@@ -58,11 +77,11 @@ const config = {
           items: [
             {
               label: 'Установка',
-              to: '/docs/installation',
+              to: '/docs/installation', // Относительный путь
             },
             {
               label: 'Использование',
-              to: '/docs/usage',
+              to: '/docs/usage', // Относительный путь
             },
           ],
         },

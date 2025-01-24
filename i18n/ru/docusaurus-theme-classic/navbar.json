@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "TelegramMediaRelayBot",
+    "description": "The title in the navbar"
+  },
+  "item.label.docsLabel": {
+    "message": "Документация",
+    "description": "Navbar item with label docsLabel"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

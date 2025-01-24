@@ -1,24 +1,24 @@
-# 🛠 Installation and Configuration
+# 🛠 Установка и настройка
 
-## 📋 System Requirements
+## 📋 Системные требования
 
-### Core Components
-| Component       | Version       | Notes                                      |
+### Основные компоненты
+| Компонент       | Версия       | Примечание                                  |
 |-----------------|--------------|---------------------------------------------|
-| .NET Runtime    | 8.0+         | Required for running the bot               |
-| MySQL Server    | 8.0+         | Required for data storage                 |
-| yt-dlp          | 2024.04.09+  | Must be in PATH or next to the executable  |
+| .NET Runtime    | 8.0+         | Обязательно для запуска                    |
+| MySQL Server    | 8.0+         | Требуется для хранения данных              |
+| yt-dlp          | 2024.04.09+  | Должен быть в PATH или рядом с исполняемым файлом |
 
-### Supported OS
-- **Linux** (x64): I used Linux Mint for development and usage. Similar distributions should work as long as the core components are present.
-- **Windows** 10/11 (x64) - Requires manual build and additional checks.
-- **macOS** (x64/ARM) - Not tested.
+### Поддерживаемые ОС
+- **Linux** (x64): Для разработки и использования я использовал Linux Mint. Поэтому похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
+- **Windows** 10/11 (x64) - требуется ручная сборка а также дополнительная проверка
+- **macOS** (x64/ARM) - не проверялась
 
-## 🚀 Quick Start for Linux
+## 🚀 Быстрый старт для Linux
 
-### 1. Installing Dependencies
+### 1. Установка зависимостей
 ```bash
-# For Ubuntu/Debian
+# Для Ubuntu/Debian
 sudo apt update && sudo apt install -y \
     git \
     mysql-server \
@@ -27,13 +27,12 @@ sudo apt update && sudo apt install -y \
 
 pip3 install yt-dlp
 
-# Install .NET 8
+# Установка .NET 8
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt update && sudo apt install -y dotnet-sdk-8.0
 ```
-
-### 2. MySQL Setup
+### 2. Настройка MySQL
 
 ```SQL
 CREATE DATABASE telegram_media;
@@ -42,25 +41,27 @@ GRANT ALL PRIVILEGES ON telegram_media.* TO 'media_bot'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-### 3. Building the Project
+### 3. Сборка проекта
 
 ```bash
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
 
-# Build standalone version
+# Сборка standalone-версии
 dotnet publish -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true
 ```
 
-4. Configuration
+4. Конфигурация
 ```bash
+
+
 cp bin/Release/net8.0/linux-x64/publish/appsettings.json.example \
    bin/Release/net8.0/linux-x64/publish/appsettings.json
 
-# Edit the config
+# Редактируем конфиг
 nano bin/Release/net8.0/linux-x64/publish/appsettings.json
 ```
-Example configuration:
+Пример конфигурации:
 ```json
 {
     "AppSettings": {
@@ -105,9 +106,9 @@ Example configuration:
 }
 ```
 
-### 5. Starting the System
+### 5. Запуск системы
 ```bash
-# Run as a service
+# Запуск как служба
 sudo cp bin/Release/net8.0/linux-x64/publish/TelegramMediaRelayBot /usr/local/bin/
 sudo tee /etc/systemd/system/media-bot.service > /dev/null <<EOL
 [Unit]
