@@ -19,13 +19,9 @@
     "message": "Использование",
     "description": "The label of footer link with label=Использование linking to docs/usage"
   },
-  "link.item.label.Mastodon (English)": {
-    "message": "Mastodon (English)",
-    "description": "The label of footer link with label=Mastodon (English) linking to https://mastodon.social/@your_username"
-  },
-  "link.item.label.Mastodon (Русский)": {
-    "message": "Mastodon (Русский)",
-    "description": "The label of footer link with label=Mastodon (Русский) linking to https://mastodon.ml/@your_username"
+  "link.item.label.Mastodon": {
+    "message": "Mastodon",
+    "description": "The label of footer link with label=Mastodon linking to https://mastodon.ml/@ZenonEl"
   },
   "link.item.label.Мой GitHub": {
     "message": "Мой GitHub",

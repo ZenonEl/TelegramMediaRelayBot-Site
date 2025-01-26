@@ -2,7 +2,7 @@
 
 ### AGPL 3.0 License
 
-**TelegramMediaRelayBot** is distributed under the **GNU Affero General Public License v3.0 (AGPL 3.0)**. This means you are free to use, modify, and distribute the bot, but you must comply with certain conditions.
+**TelegramMediaRelayBot** is distributed under the **GNU Affero General Public License v3.0 (AGPL 3.0)**. This means you are free to use, modify, and distribute the bot, but under certain conditions.
 
 ---
 
@@ -34,9 +34,9 @@
 ---
 
 ### 🌟 Why AGPL 3.0?
-I chose AGPL 3.0 to ensure, as much as possible, that the bot's code remains open and free for everyone. This also protects my rights as a developer and the community, promoting the development of FOSS.
+I chose AGPL 3.0 to ensure, as much as possible, that the bot's code remains open and free for everyone. It also protects my rights as a developer and the community, promoting the development of FOSS (Free and Open Source Software).
 
 ---
 
-### 💡 Tips
+### 💡 Tip
 - If you want to make changes to the code, review the full text of the AGPL 3.0 license: [Official License Text](https://github.com/ZenonEl/TelegramMediaRelayBot/blob/main/LICENSE).

@@ -92,18 +92,6 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature:nth-child(1) {
-  max-width: 80%;
-}
-
-.feature:nth-child(2) {
-  max-width: 90%;
-}
-
-.feature:nth-child(3) {
-  max-width: 100%;
-}
-
 .feature:hover {
   transform: scale(1.05);
   border: 2px solid var(--ifm-color-primary);

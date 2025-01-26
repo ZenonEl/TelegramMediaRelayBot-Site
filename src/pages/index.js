@@ -25,7 +25,7 @@ function Feature({ titleKey, descriptionKey, icon }) {
 
 export default function Home() {
   return (
-    <Layout title="Главная" description="Документация для TelegramMediaRelayBot">
+    <Layout title="TelegramMediaRelayBot" description="Documentation for TelegramMediaRelayBot">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">

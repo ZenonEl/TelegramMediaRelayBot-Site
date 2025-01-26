@@ -1,37 +1,71 @@
 # 🧅 Tor Control Management
 
-**Tor Control** is a feature that allows you to use the Tor network to ensure anonymity and bypass restrictions when downloading media files. The bot supports Tor integration, which is particularly useful if you want to maintain privacy or bypass blocks on certain platforms.
+**Tor Control** is a feature that allows you to automatically change Tor circuits to enhance anonymity and bypass restrictions when downloading media files. The bot supports Tor integration, which is especially useful if you want to maintain privacy or bypass blocks on certain platforms.
 
 ---
 
-### 🛠 Setting Up Tor
+### 🛠 Configuring Tor
 
 To enable and configure Tor, follow these steps:
 
-1. **Install Tor**:
-   - Ensure Tor is installed on your server. For Linux (Ubuntu/Debian), run:
-     ```bash
-     sudo apt update
-     sudo apt install tor
-     ```
+#### 1. **Creating a Hashed Password**
+To create a hashed password (`HashedControlPassword`), follow these steps:
 
-2. **Configure Tor**:
-   - Open the Tor configuration file:
-     ```bash
-     sudo nano /etc/tor/torrc
-     ```
-   - Add the following lines to enable Tor control:
-     ```
-     ControlPort 9051
-     HashedControlPassword <your_hashed_password>
-     CookieAuthentication 1
-     ```
-   - Save the file and restart Tor:
-     ```bash
-     sudo systemctl restart tor
-     ```
+1. **Install Tor** if it’s not already installed:
+   ```bash
+   sudo apt update && sudo apt install tor
+   ```
 
-3. **Configure the Bot**:
+2. **Generate a Hashed Password**:
+   Use the `tor --hash-password` command to generate a hashed password. For example:
+   ```bash
+   tor --hash-password "your_password"
+   ```
+   This command will return a string like:
+   ```
+   16:660537E3E1CD49996044A3BF558097A981F539FEA2F9DA662B4626C1C2
+   ```
+   This is your hashed password, which you need to add to `torrc`.
+
+3. **Add the Hashed Password to `torrc`**:
+   Open the Tor configuration file:
+   ```bash
+   sudo nano /etc/tor/torrc
+   ```
+   Add the following lines:
+   ```
+   ControlPort 9051
+   HashedControlPassword 16:660537E3E1CD49996044A3BF558097A981F539FEA2F9DA662B4626C1C2
+   ```
+   Here, `16:660537E3E1CD49996044A3BF558097A981F539FEA2F9DA662B4626C1C2` is an example of the hashed password you generated in the previous step.
+
+4. **Save the File and Restart Tor**:
+   After making changes, save the file and exit the editor. Then restart Tor:
+   ```bash
+   sudo systemctl restart tor
+   ```
+   :::tip
+   If the changes don’t take effect, try the following:
+     ```bash
+     sudo systemctl stop tor
+     sudo systemctl start tor
+     ```
+   :::
+
+---
+
+#### 2. **Important Notes**
+- **Security**: Ensure your password is strong.
+- **Restart Tor**: Always restart Tor after modifying `torrc` to apply the changes.
+
+:::info
+- Always use the `tor --hash-password` command to generate a hashed password.
+- Ensure that ControlPort is only accessible locally or protected by a firewall to prevent unauthorized access.
+:::
+
+---
+
+#### 3. **Configure the Bot**:
    - In the `appsettings.json` file, add or modify the `Tor` section:
      ```json
      "Tor": {
@@ -54,23 +88,9 @@ The bot supports automatic IP address rotation via Tor. This is useful if you wa
 
 ---
 
-### 🛡️ Example of Tor Control Usage
+### ⚠️ Important Considerations
 
-1. **Enabling Tor Control**:
-   - Set `"Enabled": true` in the bot's configuration.
-   - Ensure Tor is running on your server or PC.
-
-2. **Testing the Setup**:
-   - Send the bot a link to a video. If Tor is configured correctly, the bot will download the content through the Tor network.
-
-3. **IP Rotation**:
-   - If you want the bot to change IP addresses every 5 minutes, set `"TorChangingChainInterval": 5`.
-
----
-
-### ⚠️ Important Notes
-
-- **Performance**: Using Tor may slow down content downloading due to the nature of the network.
+- **Performance**: Using Tor may slow down content downloads due to the nature of the network.
 - **Security**: Ensure your Tor Control password is strong and stored securely.
 - **Limitations**: Some platforms may block requests coming through Tor. In such cases, you can temporarily disable Tor.
 
@@ -78,8 +98,8 @@ The bot supports automatic IP address rotation via Tor. This is useful if you wa
 
 ### 💡 Tips
 
-- If you do not want to use Tor Control, set `"Enabled": false` in the bot's configuration. You can still use Tor as a proxy through the "Proxy" parameter.
-- You can also test Tor functionality using the `curl` command through Tor:
+- If you don’t want to use Tor Control, set `"Enabled": false` in the bot’s configuration. You can still use Tor as a proxy via the "Proxy" parameter.
+- To test Tor functionality, you can use the `curl` command through Tor:
   ```bash
   torsocks curl https://check.torproject.org
   ```

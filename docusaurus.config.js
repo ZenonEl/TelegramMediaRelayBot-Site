@@ -3,10 +3,10 @@ import { themes as prismThemes } from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'TelegramMediaRelayBot Docs',
-  tagline: 'Документация для TelegramMediaRelayBot',
+  tagline: 'Documentation for TelegramMediaRelayBot',
   favicon: 'img/favicon.ico',
   url: 'https://zenonel.github.io',
-  baseUrl: '/', // Исправленный baseUrl
+  baseUrl: '/TelegramMediaRelayBot-Site/',
   organizationName: 'ZenonEl',
   projectName: 'TelegramMediaRelayBot-Site',
   onBrokenLinks: 'throw',
@@ -50,8 +50,8 @@ const config = {
       title: 'TelegramMediaRelayBot',
       items: [
         {
-          to: '/docs/', // Относительный путь
-          label: 'docsLabel', // Ключ перевода
+          to: '/docs/',
+          label: 'docsLabel',
           position: 'left',
         },
         {
@@ -77,11 +77,11 @@ const config = {
           items: [
             {
               label: 'Установка',
-              to: '/docs/installation', // Относительный путь
+              to: '/docs/installation',
             },
             {
               label: 'Использование',
-              to: '/docs/usage', // Относительный путь
+              to: '/docs/usage',
             },
           ],
         },
@@ -89,12 +89,8 @@ const config = {
           title: 'Соцсети',
           items: [
             {
-              label: 'Mastodon (English)',
-              href: 'https://mastodon.social/@your_username',
-            },
-            {
-              label: 'Mastodon (Русский)',
-              href: 'https://mastodon.ml/@your_username',
+              label: 'Mastodon',
+              href: 'https://mastodon.ml/@ZenonEl',
             },
           ],
         },
