@@ -11,6 +11,8 @@
 ```json
 "AccessPolicy": {
   "Enabled": true,
+  "ShowAccessDeniedMessage": false,
+
   "NewUsersPolicy": {
     "Enabled": true,
     "AllowNewUsers": true,

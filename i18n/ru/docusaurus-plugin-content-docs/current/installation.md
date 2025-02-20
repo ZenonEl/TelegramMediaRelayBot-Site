@@ -152,6 +152,7 @@ nano ./appsettings.json
     },
     "AccessPolicy": {
         "Enabled": true,
+        "ShowAccessDeniedMessage": false,
 
         "NewUsersPolicy": {
             "Enabled": true,

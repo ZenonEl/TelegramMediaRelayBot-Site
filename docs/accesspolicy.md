@@ -11,6 +11,8 @@ To configure the access policy, open the `appsettings.json` file and find the `A
 ```json
 "AccessPolicy": {
   "Enabled": true,
+  "ShowAccessDeniedMessage": false,
+  
   "NewUsersPolicy": {
     "Enabled": true,
     "AllowNewUsers": true,
