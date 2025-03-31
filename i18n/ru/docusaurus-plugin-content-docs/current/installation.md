@@ -8,46 +8,70 @@
 | .NET Runtime    | 8.0+         | Обязательно для запуска                    |
 | MySQL Server    | 8.0+         | Требуется для хранения данных              |
 | yt-dlp          | 2024.04.09+  | Должен быть рядом (в корне проекта) с исполняемым файлом |
+| gallery-dl      | 2024.04.09+  | Должен быть рядом (в корне проекта) с исполняемым файлом. Скачивается отдельно (не входит в релиз)|
 
 ### Поддерживаемые ОС
-- **Linux** (x64): Для разработки и использования я использовал Linux Mint. Поэтому, похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
+- **Linux** (x64): Для разработки и использования я использовал Linux Mint и CachyOS. Поэтому, похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
 - **Windows** 10/11 (x64) - требуется ручная сборка, а также дополнительная проверка
 - **macOS** (x64/ARM) - не проверялась
 
 ## 🚀 Быстрый старт для Linux
 
-#### Общие действия для Ubuntu/Debian
-
 Перед началом работы с проектом необходимо установить необходимые инструменты. Выполните следующие команды если у вас их ещё нету:
-```bash
-sudo apt update && sudo apt install -y \
-    git \
-    mysql-server \
-    libicu-dev
-```
 
 ### 1. Установка зависимостей для запуска из исходников
-```bash
+
+#### Для Debian/Ubuntu:
+```bash 
 # Установка .NET 8
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
-sudo apt update && sudo apt install -y dotnet-sdk-8.0
+sudo apt update && sudo apt install -y dotnet-sdk-8.0 git mysql-server libicu-dev
 
-# Клонирование репозитория
+# Клонирование и настройка
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
+# Скачивание бинарника gallery-dl (если хотите его использовать)
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+chmod +x gallery-dl
 
-# Скачивание yt-dlp в корень проекта
-wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp
-chmod +x yt-dlp
-
-# Запуск проекта
-# Перед запуском убедитесь, что выполнены все остальные шаги настройки
+# Запуск
 dotnet run --project TelegramMediaRelayBot.csproj
-# Или
-dotnet restore
-dotnet run
 ```
+
+#### Для Arch Linux:
+```bash
+# Установка зависимостей
+sudo pacman -S dotnet-sdk git mariadb icu
+
+# Клонирование и настройка
+git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
+cd TelegramMediaRelayBot
+# Скачивание бинарника gallery-dl (если хотите его использовать)
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+chmod +x gallery-dl
+
+# Запуск
+dotnet run --project TelegramMediaRelayBot.csproj
+```
+
+#### Для Fedora/RHEL:
+```bash 
+# Установка .NET 8
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
+sudo dnf install -y dotnet-sdk-8.0 git mysql-server libicu
+
+# Клонирование и настройка
+git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
+cd TelegramMediaRelayBot
+# Скачивание бинарника gallery-dl (если хотите его использовать)
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+chmod +x gallery-dl
+
+# Запуск
+dotnet run --project TelegramMediaRelayBot.csproj
+```
+
 #### 1.1 Запуск через исполняемый файл
 
 1. Скачайте последний [релиз](https://github.com/ZenonEl/TelegramMediaRelayBot/releases/latest)
@@ -68,11 +92,11 @@ dotnet run
 
 ---
 
-### **2. Настройка MySQL**
+### **2. Настройка MySQL/MariaDB**
 
 #### **2.1 Создание базы данных и пользователя**
 
-Выполните следующие команды в MySQL для создания базы данных и пользователя:
+Выполните следующие команды в MySQL/MariaDB для создания базы данных и пользователя:
 
 ```sql
 -- Создание базы данных
@@ -92,7 +116,7 @@ FLUSH PRIVILEGES;
 
 #### **2.2 Настройка конфигурации**
 
-После настройки MySQL, обновите конфигурационный файл `appsettings.json`. Убедитесь, что следующие параметры соответствуют вашей настройке MySQL:
+После настройки MySQL/MariaDB, обновите конфигурационный файл `appsettings.json`. Убедитесь, что следующие параметры соответствуют вашей настройке MySQL/MariaDB:
 
 ```json
 {
@@ -119,7 +143,7 @@ cp appsettings.json.example \
 nano ./appsettings.json
 ```
 Пример конфигурации:
-    - Если вам не нужен Tor то оставьте "Proxy" пустым ("") и в Tor.Enabled напишите false
+    - Если вам не нужен Tor или другой прокси то оставьте "Proxy" пустым ("") и в Tor.Enabled напишите false
     - В остальном же, кроме значений в блоке "AppSettings" больше можно ничего не менять.
     - Токен для "TelegramBotToken" можно получить только в официальном боте телеграм [BotFather](https://t.me/BotFather)
     - Для блока "AccessPolicy" имеется отдельное руководство.
@@ -131,7 +155,8 @@ nano ./appsettings.json
         "DatabaseName": "TelegramMediaRelayBot",
         "Language": "en-US",
         "Proxy": "socks5://127.0.0.1:9050",
-        "UserUnMuteCheckInterval": 20
+        "UserUnMuteCheckInterval": 20,
+        "UseGalleryDl": true
     },
     "Tor": {
         "Enabled": true,
@@ -152,10 +177,10 @@ nano ./appsettings.json
     },
     "AccessPolicy": {
         "Enabled": true,
-        "ShowAccessDeniedMessage": false,
 
         "NewUsersPolicy": {
             "Enabled": true,
+            "ShowAccessDeniedMessage": false,
 
             "AllowNewUsers": true,
             "AllowRules": {
