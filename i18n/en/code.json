@@ -12,19 +12,25 @@
     "message": "Get Started"
   },
   "downloadLatest": {
-    "message": "Download the latest version"
+    "message": "Download the latest version for free"
+  },
+  "githubStar": {
+    "message": "Star project on GitHub"
+  },
+  "githubProfile": {
+    "message": "My GitHub profile"
   },
   "feature1Title": {
-    "message": "Support for multiple platforms"
+    "message": "Multi-platform support"
   },
   "feature1Description": {
-    "message": "The project uses the powerful yt-dlp tool to download media files from platforms such as YouTube, Instagram, TikTok, and many others. Thanks to integration with yt-dlp, the bot ensures stable and fast content downloading, supporting a wide range of sources and formats."
+    "message": "The project uses powerful tools - yt-dlp and gallery-dl to download media files from platforms like YouTube, Instagram, TikTok and many others. Thanks to integration with yt-dlp/gallery-dl, the bot provides stable and fast content downloading, supporting a wide range of sources and formats."
   },
   "feature2Title": {
     "message": "Forwarding to contacts"
   },
   "feature2Description": {
-    "message": "The bot can automatically forward downloaded media files to specified contacts or even entire groups, making it easy to share content with friends, colleagues, or communities. This is especially useful if someone cannot directly view the content by following your link. Set up a list of recipients, and the bot will independently send them media, saving your time and simplifying the file exchange process."
+    "message": "The bot can automatically forward downloaded media files to specified contacts or even entire groups, making it easy to share content with friends, colleagues or communities. This is especially useful if someone can't view the content directly by following your link for any reason. Set up a recipient list and the bot will send them media automatically, saving your time and simplifying the media sharing process."
   },
   "feature3Title": {
     "message": "Proxy support"
