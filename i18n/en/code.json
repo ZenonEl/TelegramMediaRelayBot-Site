@@ -6,7 +6,7 @@
     "message": "Join the community of users and start using the bot today!"
   },
   "description": {
-    "message": "This is a powerful Telegram bot that allows you to download and forward media files from various platforms such as YouTube, Instagram, TikTok, and others. The bot's functionality is not limited to simply downloading media files via links. With its help, you can automate the process of downloading and forwarding media between your contacts, saving time and effort."
+    "message": "This is a powerful Telegram bot that allows you to download and forward media files from various platforms such as YouTube, Reddit, TikTok, and others. The bot's functionality is not limited to simply downloading media files via links. With its help, you can automate the process of downloading and forwarding media between your contacts, saving time and effort."
   },
   "getStarted": {
     "message": "Get Started"
@@ -24,7 +24,7 @@
     "message": "Multi-platform support"
   },
   "feature1Description": {
-    "message": "The project uses powerful tools - yt-dlp and gallery-dl to download media files from platforms like YouTube, Instagram, TikTok and many others. Thanks to integration with yt-dlp/gallery-dl, the bot provides stable and fast content downloading, supporting a wide range of sources and formats."
+    "message": "The project uses powerful tools - yt-dlp and gallery-dl to download media files from platforms like YouTube, Reddit, TikTok and many others. Thanks to integration with yt-dlp/gallery-dl, the bot provides stable and fast content downloading, supporting a wide range of sources and formats."
   },
   "feature2Title": {
     "message": "Forwarding to contacts"
