@@ -19,9 +19,13 @@
     "message": "Usage",
     "description": "The label of footer link with label=Использование linking to docs/usage"
   },
-  "link.item.label.Mastodon": {
-    "message": "Mastodon",
+  "link.item.label.Мой микроблог на Mastodon": {
+    "message": "My Mastodon micro blog",
     "description": "The label of footer link with label=Mastodon linking to https://mastodon.ml/@ZenonEl"
+  },
+  "link.item.label.Блог на Mastodon посвященный моим проектам": {
+    "message": "My Mastodon blog for my projects",
+    "description": "The label of footer link with label=Mastodon linking to https://lor.sh/@ZenonEl"
   },
   "link.item.label.Мой GitHub": {
     "message": "My GitHub",

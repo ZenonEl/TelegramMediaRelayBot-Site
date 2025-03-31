@@ -89,8 +89,13 @@ const config = {
           title: 'Соцсети',
           items: [
             {
-              label: 'Mastodon',
+              label: 'Мой микроблог на Mastodon',
               href: 'https://mastodon.ml/@ZenonEl',
+            },
+            {
+              label: 'Блог на Mastodon посвященный моим проектам',
+              href: 'https://lor.sh/@ZenonEl',
+              rel: "me"
             },
           ],
         },
@@ -107,8 +112,18 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} ZenonEl. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'sql', 'json'],
+      theme: prismThemes.nightOwl,
+      darkTheme: prismThemes.oceanicNext,
+      showLineNumbers: true,
+      defaultLanguage: 'text',
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: {start: 'highlight-start', end: 'highlight-end'},
+        },
+      ],
     },
   },
 };
