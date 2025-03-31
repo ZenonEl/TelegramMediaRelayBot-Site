@@ -10,7 +10,22 @@
   --ifm-color-primary-darker: #1fa588;
 }
 
- /* GitHub Buttons */
+/* Logo */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.logoImage {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* GitHub Buttons */
 .githubButton {
   cursor: pointer;
   display: inline-flex;

@@ -1,3 +1,6 @@
+import Logo from '@site/static/img/Logo.jpg';
+
+
 # 🌌 Introduction
 
 :::tip
@@ -75,3 +78,21 @@ What about monetization? 💰
 
 ---
 P.S. If the bot saves you at least 10 minutes a day - I'm already happy. And by the way, if you find an analog - I will personally send you a virtual fortune cookie 🍪✨
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '2rem 0'
+}}>
+  <img 
+    src={Logo} 
+    alt="Project Logo" 
+    style={{
+      width: '400px',
+      height: '400px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    }}
+  />
+</div>

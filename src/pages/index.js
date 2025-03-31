@@ -3,9 +3,11 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import styles from './index.module.css';
+import Logo from '@site/static/img/Logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faComputer, faDownload, faShare, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faBookDead, faCode, faCodeBranch, faCodeCommit, faCodeFork, faComputer, faDownload, faShare, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import Translate from '@docusaurus/Translate';
+import { faBookBookmark } from '@fortawesome/free-solid-svg-icons/faBookBookmark';
 
 function Feature({ titleKey, descriptionKey, icon }) {
   return (
@@ -34,7 +36,7 @@ const GitHubButton = ({ variant = 'star', href }) => {
       className={clsx(styles.githubButton, isStarVariant ? styles.starVariant : styles.profileVariant)}
     >
       <span className={styles.buttonText}>
-        <Translate id={isStarVariant ? "githubStar" : "githubProfile"} />
+        <FontAwesomeIcon icon={faCode} size="1x" /> <Translate id={isStarVariant ? "githubStar" : "githubProfile"} />
       </span>
       
       {isStarVariant && (
@@ -56,6 +58,13 @@ export default function Home() {
     <Layout title="TelegramMediaRelayBot" description="Documentation for TelegramMediaRelayBot">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
+          <div className={styles.logoContainer}>
+            <img 
+              src={Logo} 
+              alt="TelegramMediaRelayBot Logo" 
+              className={styles.logoImage}
+            />
+          </div>
           <h1 className="hero__title">
             <Translate id="title" />
             <GitHubButton 
@@ -77,14 +86,14 @@ export default function Home() {
             <Link
               className={clsx('button button--primary button--lg', styles.getStarted)}
               to="/docs/">
-              <Translate id="getStarted" />
+              <FontAwesomeIcon icon={faBookBookmark} size="1x" /> <Translate id="getStarted" />
             </Link>
             <Link
               className={clsx('button button--primary button--lg', styles.getStarted)}
               to="https://github.com/ZenonEl/TelegramMediaRelayBot/releases/latest"
               target="_blank"
               rel="noopener noreferrer">
-              <Translate id="downloadLatest" />
+              <FontAwesomeIcon icon={faDownload} size="1x" /> <Translate id="downloadLatest" />
             </Link>
           </div>
         </div>
