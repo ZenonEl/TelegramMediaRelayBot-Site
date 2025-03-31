@@ -8,7 +8,7 @@
 
 Чтобы настроить политику доступа, откройте файл `appsettings.json` и найдите раздел `AccessPolicy`. Вот пример конфигурации:
 
-```json
+```json showLineNumbers
 "AccessPolicy": {
   "Enabled": true,
 
@@ -43,12 +43,12 @@
 - **AllowAll**: Если `true`, все пользователи бота могут приглашать новых людей в бота. Если `false` — только те кто есть в списке `WhitelistedReferrerIds`.
 - **WhitelistedReferrerIds**: Список Telegram-ID пользователей, которые всегда могут добавлять новых пользователей.
    - Например:
-     ```json
+     ```json showLineNumbers
      "WhitelistedReferrerIds": [123456789, 987654321]
      ```
 - **BlacklistedReferrerIds**: Список Telegram-ID пользователей, которые никогда не смогут добавлять новых пользователей.
    - Например:
-     ```json
+     ```json showLineNumbers
      "BlacklistedReferrerIds": [111111111, 222222222]
      ```
 

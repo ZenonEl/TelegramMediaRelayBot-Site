@@ -8,7 +8,7 @@
 
 To configure the access policy, open the `appsettings.json` file and find the `AccessPolicy` section. Here is an example configuration:
 
-```json
+```json showLineNumbers
 "AccessPolicy": {
   "Enabled": true,
 
@@ -43,12 +43,12 @@ To configure the access policy, open the `appsettings.json` file and find the `A
 - **AllowAll**: If `true`, all bot users can invite new people to the bot. If `false` - only those who are in the `WhitelistedReferrerIds` list.
 - **WhitelistedReferrerIds**: A list of Telegram IDs of users who can always add new users.
    - For example:
-     ```json
+     ```json showLineNumbers
      "WhitelistedReferrerIds": [123456789, 987654321]
      ```
 - **BlacklistedReferrerIds**: A list of Telegram IDs of users who will never be able to add new users.
    - For example:
-     ```json
+     ```json showLineNumbers
      "BlacklistedReferrerIds": [111111111, 222222222]
      ```
 

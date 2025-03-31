@@ -13,13 +13,13 @@
 Для создания хэшированного пароля (`HashedControlPassword`) выполните следующие шаги:
 
 1. **Установите Tor**, если он ещё не установлен:
-   ```bash
+   ```bash showLineNumbers
    sudo apt update && sudo apt install tor
    ```
 
 2. **Создайте хэшированный пароль**:
     Используйте команду `tor --hash-password` для генерации хэшированного пароля. Например:
-    ```bash
+    ```bash showLineNumbers
     tor --hash-password "ваш_пароль"
     ```
     Эта команда вернёт строку вида:
@@ -30,7 +30,7 @@
 
 3. **Добавьте хэшированный пароль в `torrc`**:
     Откройте конфигурационный файл Tor:
-    ```bash
+    ```bash showLineNumbers
     sudo nano /etc/tor/torrc
     ```
     Добавьте следующие строки:
@@ -42,12 +42,12 @@
 
 4. **Сохраните файл и перезапустите Tor**:
     После внесения изменений сохраните файл и выйдите из редактора. Затем перезапустите Tor:
-    ```bash
+    ```bash showLineNumbers
     sudo systemctl restart tor
     ```
     :::tip
     Если изменения не вступают в силу, то возможное решение:
-      ```bash
+      ```bash showLineNumbers
       sudo systemctl stop tor
       sudo systemctl start tor
       ```
@@ -68,7 +68,7 @@
 
 #### 3. **Настройте бота**:
    - В файле `appsettings.json` добавьте или измените раздел `Tor`:
-     ```json
+     ```json showLineNumbers
      "Tor": {
        "Enabled": true,
        "TorControlPassword": "ваш_пароль",
@@ -101,6 +101,6 @@
 
 - Если вы не хотите использовать Tor Control, установите `"Enabled": false` в конфигурации бота. И при этом вы всё также сможете использовать Tor в качестве прокси через параметр "Proxy"
 - Также для тестирования работы Tor можно использовать команду `curl` через Tor:
-  ```bash
+  ```bash showLineNumbers
   torsocks curl https://check.torproject.org
   ```

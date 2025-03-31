@@ -22,7 +22,7 @@
 ### 1. Установка зависимостей для запуска из исходников
 
 #### Для Debian/Ubuntu:
-```bash 
+```bash showLineNumbers 
 # Установка .NET 8
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -32,7 +32,7 @@ sudo apt update && sudo apt install -y dotnet-sdk-8.0 git mysql-server libicu-de
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
 # Скачивание бинарника gallery-dl (если хотите его использовать)
-wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.bin -O gallery-dl.bin
 chmod +x gallery-dl
 
 # Запуск
@@ -40,7 +40,7 @@ dotnet run --project TelegramMediaRelayBot.csproj
 ```
 
 #### Для Arch Linux:
-```bash
+```bash showLineNumbers
 # Установка зависимостей
 sudo pacman -S dotnet-sdk git mariadb icu
 
@@ -48,7 +48,7 @@ sudo pacman -S dotnet-sdk git mariadb icu
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
 # Скачивание бинарника gallery-dl (если хотите его использовать)
-wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.bin -O gallery-dl.bin
 chmod +x gallery-dl
 
 # Запуск
@@ -56,7 +56,7 @@ dotnet run --project TelegramMediaRelayBot.csproj
 ```
 
 #### Для Fedora/RHEL:
-```bash 
+```bash showLineNumbers 
 # Установка .NET 8
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 sudo dnf install -y dotnet-sdk-8.0 git mysql-server libicu
@@ -65,7 +65,7 @@ sudo dnf install -y dotnet-sdk-8.0 git mysql-server libicu
 git clone https://github.com/ZenonEl/TelegramMediaRelayBot.git
 cd TelegramMediaRelayBot
 # Скачивание бинарника gallery-dl (если хотите его использовать)
-wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl -O gallery-dl.bin
+wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.bin -O gallery-dl.bin
 chmod +x gallery-dl
 
 # Запуск
@@ -85,7 +85,7 @@ dotnet run --project TelegramMediaRelayBot.csproj
     ```
 5. Запустите исполняемый файл:
     **Перед запуском убедитесь, что выполнены все остальные шаги настройки**
-    ```bash
+    ```bash showLineNumbers
     ./TelegramMediaRelayBot
     ```
 
@@ -98,7 +98,7 @@ dotnet run --project TelegramMediaRelayBot.csproj
 
 Выполните следующие команды в MySQL/MariaDB для создания базы данных и пользователя:
 
-```sql
+```sql showLineNumbers
 -- Создание базы данных
 CREATE DATABASE TelegramMediaRelayBot;
 
@@ -118,7 +118,7 @@ FLUSH PRIVILEGES;
 
 После настройки MySQL/MariaDB, обновите конфигурационный файл `appsettings.json`. Убедитесь, что следующие параметры соответствуют вашей настройке MySQL/MariaDB:
 
-```json
+```json showLineNumbers
 {
     "AppSettings": {
         "SqlConnectionString": "Server=localhost;Database=TelegramMediaRelayBot;User ID=media_bot;Password=StrongPassword123!;",
@@ -135,7 +135,7 @@ FLUSH PRIVILEGES;
 ---
 
 ### 3. Работа с конфигурацией
-```bash
+```bash showLineNumbers
 cp appsettings.json.example \
    appsettings.json
 
@@ -147,7 +147,7 @@ nano ./appsettings.json
     - В остальном же, кроме значений в блоке "AppSettings" больше можно ничего не менять.
     - Токен для "TelegramBotToken" можно получить только в официальном боте телеграм [BotFather](https://t.me/BotFather)
     - Для блока "AccessPolicy" имеется отдельное руководство.
-```json
+```json showLineNumbers
 {
     "AppSettings": {
         "TelegramBotToken": "1234:abcd",

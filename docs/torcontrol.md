@@ -13,13 +13,13 @@ To enable and configure Tor, follow these steps:
 To create a hashed password (`HashedControlPassword`), follow these steps:
 
 1. **Install Tor** if it’s not already installed:
-   ```bash
+   ```bash showLineNumbers
    sudo apt update && sudo apt install tor
    ```
 
 2. **Generate a Hashed Password**:
    Use the `tor --hash-password` command to generate a hashed password. For example:
-   ```bash
+   ```bash showLineNumbers
    tor --hash-password "your_password"
    ```
    This command will return a string like:
@@ -30,7 +30,7 @@ To create a hashed password (`HashedControlPassword`), follow these steps:
 
 3. **Add the Hashed Password to `torrc`**:
    Open the Tor configuration file:
-   ```bash
+   ```bash showLineNumbers
    sudo nano /etc/tor/torrc
    ```
    Add the following lines:
@@ -42,12 +42,12 @@ To create a hashed password (`HashedControlPassword`), follow these steps:
 
 4. **Save the File and Restart Tor**:
    After making changes, save the file and exit the editor. Then restart Tor:
-   ```bash
+   ```bash showLineNumbers
    sudo systemctl restart tor
    ```
    :::tip
    If the changes don’t take effect, try the following:
-     ```bash
+     ```bash showLineNumbers
      sudo systemctl stop tor
      sudo systemctl start tor
      ```
@@ -68,7 +68,7 @@ To create a hashed password (`HashedControlPassword`), follow these steps:
 
 #### 3. **Configure the Bot**:
    - In the `appsettings.json` file, add or modify the `Tor` section:
-     ```json
+     ```json showLineNumbers
      "Tor": {
        "Enabled": true,
        "TorControlPassword": "your_password",
@@ -101,6 +101,6 @@ The bot supports automatic IP address rotation via Tor. This is useful if you wa
 
 - If you don’t want to use Tor Control, set `"Enabled": false` in the bot’s configuration. You can still use Tor as a proxy via the "Proxy" parameter.
 - To test Tor functionality, you can use the `curl` command through Tor:
-  ```bash
+  ```bash showLineNumbers
   torsocks curl https://check.torproject.org
   ```
