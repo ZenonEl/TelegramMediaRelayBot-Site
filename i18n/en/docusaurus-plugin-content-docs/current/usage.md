@@ -50,7 +50,7 @@ Check out this cosmic dance of the northern lights! 🌌 #nature #wow
 If you use a description, make sure it starts on a new line!
 :::
 → The bot will handle the rest:  
-1. Identify the platform — whether it’s YouTube, TikTok, Instagram, or any other service.
+1. Identify the platform — whether it’s YouTube, TikTok, Reddit, or any other service.
 2. Download the content in optimal quality (with the ability to customize preferences in the configuration). 
 3. Forward the video exactly where and to whom it needs to go. ✨
 
@@ -68,13 +68,13 @@ If you use a description, make sure it starts on a new line!
 
 ---
 
-## 🔗 Supported Platforms  
-The bot works with 1000+ sources thanks to **yt-dlp** integration — the full list is [here](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).  
-*Possible in the future:* integration with **gallery-dl** for downloading entire galleries and archives!
+## 🔗 Supported platforms 
+Bot works with 1000+ sources thanks to **yt-dlp** integration - full list [here](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).  
+If you enable integration with **gallery-dl** to download entire galleries and archives - [their number will become even more!](https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.md)
 
 --- 
 
-✨ **The project is constantly evolving:** new features are popping up like mushrooms after the rain! 🍄  
-To stay updated and not miss anything important:  
-- **Follow my account** on Mastodon.  
-- Or simply stay informed through the person who invited you to this exciting digital media whirlpool! 😉
+✨ **Project is constantly evolving:** new features appear like mushrooms after rain! 🍄 
+To keep up with all the updates and not to miss anything important: 
+- **Subscribe to my account** at [Mastodon](https://lor.sh/@ZenonEl).  
+- Or just inquire for updates from whoever invited you into this exciting digital media circle! 😉  
