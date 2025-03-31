@@ -76,10 +76,10 @@ dotnet run --project TelegramMediaRelayBot.csproj
 2. Extract the archive to a convenient location.
 3. Create the `appsettings.json` file:
     - Use the example configuration from `appsettings.json.example`.
-4. Download yt-dlp:
-    ```bash
-    wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp
-    chmod +x yt-dlp
+4. Download gallery-dl:
+    ```bash showLineNumbers
+    wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.bin -O gallery-dl.bin
+    chmod +x gallery-dl
     ```
 5. Run the executable:
     **Ensure all other setup steps are completed before running.**
