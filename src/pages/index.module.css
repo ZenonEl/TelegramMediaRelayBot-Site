@@ -5,9 +5,89 @@
 
 
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0; /* Зелёный фон для тёмной темы */
+  --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21AB8D;
   --ifm-color-primary-darker: #1fa588;
+}
+
+ /* GitHub Buttons */
+.githubButton {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  margin: 0.5rem;
+}
+
+/* Star Variant */
+.starVariant {
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 25px;
+  font-size: 16px;
+}
+
+.starVariant:hover {
+  transform: scale(1.1);
+}
+
+.starVariant:active {
+  transform: scale(1);
+}
+
+.starVariant:hover .buttonIcon {
+  fill: rgb(238, 255, 0);
+  transform: scale(1.1) rotate(360deg);
+  filter: 
+    drop-shadow(0 0 5px rgba(255, 208, 0, 0.8))
+    drop-shadow(0 0 10px rgba(255, 208, 0, 0.6));
+}
+
+.starVariant:hover .buttonText {
+  color: #fff;
+  filter: 
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.2))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+}
+
+/* Profile Variant */
+.profileVariant {
+  background-color: var(--ifm-color-primary-dark);
+  border: 2px solid var(--ifm-color-primary-darker);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.825rem;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.profileVariant:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(252, 232, 3, 0.08);
+  color: white !important;
+  transform: translateY(-0.25rem);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Common styles */
+.buttonText {
+  transition: all 1s ease;
+}
+
+.buttonIcon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: -3px;
+  transition: all 1s ease;
+  fill: currentColor;
 }
 
 .heroBanner {
@@ -18,7 +98,10 @@
   background-color: var(--ifm-hero-background-color);
 }
 
-.hero__title {
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 3rem;
   margin-bottom: 1rem;
 }
@@ -82,6 +165,7 @@
 .getStarted:hover {
   background-color: var(--ifm-color-primary-darkest);
   border-color: var(--ifm-color-primary-darker);
+  color: white !important;
 }
 
 .feature {
