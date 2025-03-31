@@ -1,6 +1,7 @@
 # 🧅 Tor Control Management
 
-**Tor Control** is a feature that allows you to automatically change Tor circuits to enhance anonymity and bypass restrictions when downloading media files. The bot supports Tor integration, which is especially useful if you want to maintain privacy or bypass blocks on certain platforms.
+The bot supports Tor integration, which is especially useful if you want to maintain privacy or bypass blocking on certain platforms.
+**Tor Control** is a feature that allows you to automatically change chains within the Tor network to provide greater anonymity and bypass platform restrictions when downloading media files.
 
 ---
 
