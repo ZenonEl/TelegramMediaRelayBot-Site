@@ -50,6 +50,114 @@
   "feature5Description": {
     "message": "The bot is designed for Linux, but thanks to the use of .NET Core, it can be adapted to work on Windows and macOS. This makes it a flexible solution for various platforms."
   },
+  "stats.title": {
+    "message": "Project Statistics"
+  },
+  "demo.title": {
+    "message": "See It In Action"
+  },
+  "demo.description": {
+    "message": "Watch how TelegramMediaRelayBot works with real examples"
+  },
+  "demo.supportedPlatforms": {
+    "message": "Supported Platforms"
+  },
+  "faq.title": {
+    "message": "Frequently Asked Questions"
+  },
+  "faq.description": {
+    "message": "Find answers to the most popular questions about TelegramMediaRelayBot"
+  },
+  "faq.question1": {
+    "message": "How to start using TelegramMediaRelayBot?"
+  },
+  "faq.answer1": {
+    "message": "Install .NET 8.0+, MySQL 8.0+ and yt-dlp. Download the bot from GitHub, create appsettings.json with your Bot Token from BotFather and database settings. After startup, use /start and exchange unique links with contacts to create your media network."
+  },
+  "faq.question2": {
+    "message": "What platforms does the bot support?"
+  },
+  "faq.answer2": {
+    "message": "The bot supports 1000+ sites through yt-dlp and gallery-dl: YouTube, Reddit, TikTok, Pinterest, Instagram, Twitter, Twitch and many others. This solves the problem when your friends aren't registered on certain platforms or don't want to click links."
+  },
+  "faq.question3": {
+    "message": "How to set up automatic media forwarding?"
+  },
+  "faq.answer3": {
+    "message": "Use the /start command and add contacts through \"Add Contact\". Exchange unique links with friends. After confirmation, simply send a link + description (on a new line), and the bot will automatically download and forward content to all specified recipients."
+  },
+  "faq.question4": {
+    "message": "Is it safe to use the bot?"
+  },
+  "faq.answer4": {
+    "message": "Yes, the bot is completely safe. All code is open and available on GitHub under the AGPL 3.0 license. The bot runs locally on your server, doesn't send data to third parties, and supports working through Tor for additional anonymity."
+  },
+  "faq.question5": {
+    "message": "How to use hashtags for content organization?"
+  },
+  "faq.answer5": {
+    "message": "Add hashtags to the description after the link: #family, #work, #memes. This helps sort content and easily find it in chat history. You can use both built-in and custom hashtags for better organization."
+  },
+  "faq.question6": {
+    "message": "Why do I need this bot if I can just send a link?"
+  },
+  "faq.answer6": {
+    "message": "The problem is that friends are often not registered on platforms (TikTok, Reddit), too lazy to click links, or don't want to register. You have to manually download, forward, and clean up device memory. The bot automates this entire process."
+  },
+  "faq.question7": {
+    "message": "What to do if the bot doesn't work with a specific site?"
+  },
+  "faq.answer7": {
+    "message": "Check that you have the latest version of yt-dlp installed. If the problem persists, create an issue on GitHub with a description of the problem and link to the problematic content. We will try to solve the problem in the next update."
+  },
+  "faq.question8": {
+    "message": "Can the bot be used in Telegram groups?"
+  },
+  "faq.answer8": {
+    "message": "Yes! The bot supports working in Telegram group chats. Just send a link to the group, and the bot will download content and send it directly to the group chat, plus it can forward to other configured contacts according to your rules."
+  },
+  "faq.stillNeedHelp": {
+    "message": "Still need help?"
+  },
+  "faq.contactDescription": {
+    "message": "If you haven't found an answer to your question, create an issue on GitHub or contact the developer"
+  },
+  "faq.createIssue": {
+    "message": "Create Issue"
+  },
+  "faq.readDocs": {
+    "message": "Read Documentation"
+  },
+  "testimonials.title": {
+    "message": "What Users Say"
+  },
+  "testimonials.description": {
+    "message": "Real user reviews about TelegramMediaRelayBot"
+  },
+  "testimonials.happyUsers": {
+    "message": "Happy Users"
+  },
+  "testimonials.supportedSites": {
+    "message": "Supported Sites"
+  },
+  "testimonials.availability": {
+    "message": "Always Available"
+  },
+  "testimonials.uptime": {
+    "message": "Uptime"
+  },
+  "testimonials.ctaTitle": {
+    "message": "Join the Community!"
+  },
+  "testimonials.ctaDescription": {
+    "message": "Become part of the growing TelegramMediaRelayBot user community"
+  },
+  "testimonials.starOnGitHub": {
+    "message": "Star on GitHub"
+  },
+  "testimonials.getStarted": {
+    "message": "Get Started"
+  },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
     "description": "The title of the fallback page when the page crashed"
