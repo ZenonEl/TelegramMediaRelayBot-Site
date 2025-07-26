@@ -38,7 +38,7 @@ const FAQ = () => {
       question: "Какие платформы поддерживает бот?",
       answerKey: "faq.answer2",
       answer:
-        "Бот поддерживает 1000+ сайтов через yt-dlp и gallery-dl: YouTube, Reddit, TikTok, Pinterest, Instagram, Twitter, Twitch и многие другие. Это решает проблему, когда ваши друзья не зарегистрированы на определенных платформах или не хотят переходить по ссылкам.",
+        "Бот поддерживает 1000+ сайтов через yt-dlp и gallery-dl: YouTube, Reddit, TikTok, Pinterest, VK, Telegram, Twitch и многие другие. Это решает проблему, когда ваши друзья не зарегистрированы на определенных платформах или не хотят переходить по ссылкам.",
       category: "features",
     },
     {

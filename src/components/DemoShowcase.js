@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faExpand, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import styles from './DemoShowcase.module.css';
-import Translate from '@docusaurus/Translate';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faExpand,
+  faChevronLeft,
+  faChevronRight,
+  faImage,
+} from "@fortawesome/free-solid-svg-icons";
+import styles from "./DemoShowcase.module.css";
+import Translate from "@docusaurus/Translate";
 
 const DemoShowcase = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -12,32 +19,32 @@ const DemoShowcase = () => {
   const demoItems = [
     {
       id: 1,
-      type: 'image',
-      src: '/img/demo/bot-start.png',
-      title: 'Bot Startup',
-      description: 'Starting the TelegramMediaRelayBot'
+      type: "image",
+      src: "/img/demo/bot-start.png",
+      title: "Bot Startup",
+      description: "Starting the TelegramMediaRelayBot",
     },
     {
       id: 2,
-      type: 'image',
-      src: '/img/demo/download-process.png',
-      title: 'Download Process',
-      description: 'Bot downloading media from YouTube'
+      type: "image",
+      src: "/img/demo/download-process.png",
+      title: "Download Process",
+      description: "Bot downloading media from YouTube",
     },
     {
       id: 3,
-      type: 'image',
-      src: '/img/demo/relay-message.png',
-      title: 'Media Relay',
-      description: 'Automatically relaying downloaded media to contacts'
+      type: "image",
+      src: "/img/demo/relay-message.png",
+      title: "Media Relay",
+      description: "Automatically relaying downloaded media to contacts",
     },
     {
       id: 4,
-      type: 'video',
-      src: '/img/demo/full-demo.mp4',
-      title: 'Full Demo',
-      description: 'Complete workflow demonstration'
-    }
+      type: "video",
+      src: "/img/demo/full-demo.mp4",
+      title: "Full Demo",
+      description: "Complete workflow demonstration",
+    },
   ];
 
   const nextSlide = () => {
@@ -70,9 +77,7 @@ const DemoShowcase = () => {
       <div className="container">
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>
-            <Translate id="demo.title">
-              See It In Action
-            </Translate>
+            <Translate id="demo.title">See It In Action</Translate>
           </h2>
           <p className={styles.sectionDescription}>
             <Translate id="demo.description">
@@ -84,15 +89,17 @@ const DemoShowcase = () => {
         <div className={styles.demoContainer}>
           <div className={styles.demoViewer}>
             <div className={styles.mediaContainer}>
-              {currentItem.type === 'image' ? (
+              {currentItem.type === "image" ? (
                 <div className={styles.imageWrapper}>
                   <img
                     src={currentItem.src}
                     alt={currentItem.title}
                     className={styles.demoImage}
                     onError={(e) => {
-                      // Fallback placeholder
-                      e.target.src = '/img/placeholder-demo.svg';
+                      // Fallback to placeholder
+                      e.target.style.display = "none";
+                      e.target.nextElementSibling.nextElementSibling.style.display =
+                        "flex";
                     }}
                   />
                   <div className={styles.imageOverlay}>
@@ -100,6 +107,17 @@ const DemoShowcase = () => {
                       <h3>{currentItem.title}</h3>
                       <p>{currentItem.description}</p>
                     </div>
+                  </div>
+                  <div
+                    className={styles.photoPlaceholder}
+                    style={{ display: "none" }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faImage}
+                      size="3x"
+                      className={styles.placeholderIcon}
+                    />
+                    <p>Photo Demo Coming Soon</p>
                   </div>
                 </div>
               ) : (
@@ -111,13 +129,16 @@ const DemoShowcase = () => {
                     poster={`/img/demo/${currentItem.id}-poster.jpg`}
                     onError={(e) => {
                       // Fallback to placeholder
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
+                      e.target.style.display = "none";
+                      e.target.nextElementSibling.style.display = "flex";
                     }}
                   >
                     Your browser does not support the video tag.
                   </video>
-                  <div className={styles.videoPlaceholder} style={{ display: 'none' }}>
+                  <div
+                    className={styles.videoPlaceholder}
+                    style={{ display: "none" }}
+                  >
                     <FontAwesomeIcon icon={faPlay} size="3x" />
                     <p>Video Demo Coming Soon</p>
                   </div>
@@ -139,7 +160,7 @@ const DemoShowcase = () => {
                 <button
                   className={styles.playButton}
                   onClick={togglePlay}
-                  aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
+                  aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
                 >
                   <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                 </button>
@@ -164,7 +185,7 @@ const DemoShowcase = () => {
                 <button
                   key={index}
                   className={`${styles.indicator} ${
-                    index === currentSlide ? styles.active : ''
+                    index === currentSlide ? styles.active : ""
                   }`}
                   onClick={() => goToSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
@@ -204,12 +225,12 @@ const DemoShowcase = () => {
           </h3>
           <div className={styles.platforms}>
             {[
-              { name: 'YouTube', icon: '📺' },
-              { name: 'Reddit', icon: '🟠' },
-              { name: 'TikTok', icon: '🎵' },
-              { name: 'Twitter', icon: '🐦' },
-              { name: 'Instagram', icon: '📷' },
-              { name: 'And More...', icon: '➕' }
+              { name: "YouTube", icon: "📺" },
+              { name: "Reddit", icon: "🟠" },
+              { name: "TikTok", icon: "🎵" },
+              { name: "VK", icon: "🌐" },
+              { name: "Pinterest", icon: "📌" },
+              { name: "And More...", icon: "➕" },
             ].map((platform, index) => (
               <div key={index} className={styles.platform}>
                 <span className={styles.platformIcon}>{platform.icon}</span>

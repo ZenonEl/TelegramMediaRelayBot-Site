@@ -78,7 +78,7 @@
     "message": "What platforms does the bot support?"
   },
   "faq.answer2": {
-    "message": "The bot supports 1000+ sites through yt-dlp and gallery-dl: YouTube, Reddit, TikTok, Pinterest, Instagram, Twitter, Twitch and many others. This solves the problem when your friends aren't registered on certain platforms or don't want to click links."
+    "message": "The bot supports 1000+ sites through yt-dlp and gallery-dl: YouTube, Reddit, TikTok, Pinterest, VK, Telegram, Twitch and many others. This solves the problem when your friends aren't registered on certain platforms or don't want to click links."
   },
   "faq.question3": {
     "message": "How to set up automatic media forwarding?"

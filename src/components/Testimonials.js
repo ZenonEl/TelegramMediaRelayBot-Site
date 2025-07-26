@@ -8,11 +8,7 @@ import {
   faChevronRight,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faTwitter,
-  faTelegram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faVk, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import styles from "./Testimonials.module.css";
 import Translate from "@docusaurus/Translate";
 
@@ -39,7 +35,7 @@ const Testimonials = () => {
       avatar: "/img/testimonials/user2.jpg",
       rating: 5,
       text: 'My friends were always asking me to send them TikTok videos because they weren\'t registered there. Now I just throw links to the bot and it automatically forwards content to everyone. No more "can you send me this video?" messages!',
-      platform: "twitter",
+      platform: "vk",
       verified: true,
       date: "2024-01-20",
     },
@@ -106,8 +102,8 @@ const Testimonials = () => {
     switch (platform) {
       case "github":
         return faGithub;
-      case "twitter":
-        return faTwitter;
+      case "vk":
+        return faVk;
       case "telegram":
         return faTelegram;
       default:
@@ -119,8 +115,8 @@ const Testimonials = () => {
     switch (platform) {
       case "github":
         return "#333";
-      case "twitter":
-        return "#1da1f2";
+      case "vk":
+        return "#4c75a3";
       case "telegram":
         return "#0088cc";
       default:

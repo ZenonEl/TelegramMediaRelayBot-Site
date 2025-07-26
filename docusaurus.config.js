@@ -52,14 +52,14 @@ const config = {
     {
       tagName: "meta",
       attributes: {
-        name: "twitter:card",
+        name: "vk:card",
         content: "summary_large_image",
       },
     },
     {
       tagName: "meta",
       attributes: {
-        name: "twitter:creator",
+        name: "vk:creator",
         content: "@ZenonEl",
       },
     },
@@ -95,7 +95,7 @@ const config = {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
-        }
+        },
       }),
     },
   ],
@@ -212,23 +212,23 @@ const config = {
       { name: "og:locale", content: "en_US" },
       { name: "og:locale:alternate", content: "ru_RU" },
 
-      // Twitter Cards
-      { name: "twitter:card", content: "summary_large_image" },
+      // VK Cards
+      { name: "vk:card", content: "summary_large_image" },
       {
-        name: "twitter:title",
+        name: "vk:title",
         content: "TelegramMediaRelayBot - Automate Media Downloads & Sharing",
       },
       {
-        name: "twitter:description",
+        name: "vk:description",
         content:
           "Free open-source Telegram bot for automatic media downloading from YouTube, Reddit, TikTok and 1000+ sites with smart forwarding",
       },
       {
-        name: "twitter:image",
+        name: "vk:image",
         content:
           "https://zenonel.github.io/TelegramMediaRelayBot-Site/img/Logo.jpg",
       },
-      { name: "twitter:creator", content: "@ZenonEl" },
+      { name: "vk:creator", content: "@ZenonEl" },
 
       // Additional meta tags
       { name: "theme-color", content: "#2e8555" },
