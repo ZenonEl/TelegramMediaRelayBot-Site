@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zenonel.github.io/TelegramMediaRelayBot-Site/sitemap.xml

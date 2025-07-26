@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktelegram_media_relay_bot_site=self.webpackChunktelegram_media_relay_bot_site||[]).push([[957],{936:e=>{e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
