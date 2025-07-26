@@ -316,7 +316,7 @@ const Testimonials = () => {
               </Translate>
             </a>
             <a
-              href="/docs/"
+              href="docs/"
               className={`${styles.ctaButton} ${styles.secondary}`}
             >
               <Translate id="testimonials.getStarted">

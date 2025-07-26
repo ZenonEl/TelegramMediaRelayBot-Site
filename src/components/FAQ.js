@@ -247,7 +247,7 @@ const FAQ = () => {
                 <FontAwesomeIcon icon={faQuestionCircle} />
                 <Translate id="faq.createIssue">Создать Issue</Translate>
               </a>
-              <a href="/docs/" className={styles.helpButton}>
+              <a href="docs/" className={styles.helpButton}>
                 <FontAwesomeIcon icon={faRocket} />
                 <Translate id="faq.readDocs">Читать документацию</Translate>
               </a>
