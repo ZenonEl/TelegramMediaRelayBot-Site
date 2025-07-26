@@ -1,0 +1,214 @@
+.statsContainer {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: var(--ifm-card-background-color);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--ifm-shadow-color);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.statItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stat-color, var(--ifm-color-primary));
+  border-radius: 12px 12px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover::before {
+  transform: scaleX(1);
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.statIcon {
+  font-size: 2rem;
+  color: var(--stat-color, var(--ifm-color-primary));
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.statItem:hover .statIcon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--stat-color));
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.statItem:hover .statValue {
+  color: var(--stat-color, var(--ifm-color-primary));
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.loadingContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.errorContainer {
+  text-align: center;
+  color: var(--ifm-color-danger);
+  padding: 2rem;
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background-color: #eee;
+  background-image: linear-gradient(
+    90deg,
+    #eee,
+    #f5f5f5,
+    #eee
+  );
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.3s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .shimmer {
+  background-color: #444;
+  background-image: linear-gradient(
+    90deg,
+    #444,
+    #555,
+    #444
+  );
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .statsContainer {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .statItem {
+    padding: 0.75rem;
+  }
+
+  .statIcon {
+    font-size: 1.5rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Animation delays for staggered effect */
+.statItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.statItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.statItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.statItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Pulse effect for active stats */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.statItem.active {
+  animation: pulse 2s infinite;
+}
+
+/* Gradient text effect for values */
+.statValue {
+  background: linear-gradient(45deg, var(--stat-color, var(--ifm-color-primary)), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+  .statValue {
+    color: var(--stat-color, var(--ifm-color-primary));
+    -webkit-text-fill-color: unset;
+  }
+}
