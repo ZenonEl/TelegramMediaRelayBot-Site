@@ -23,6 +23,7 @@ import GitHubStats from "@site/src/components/GitHubStats";
 import DemoShowcase from "@site/src/components/DemoShowcase";
 import FAQ from "@site/src/components/FAQ";
 import Testimonials from "@site/src/components/Testimonials";
+import SEO from "@site/src/components/SEO";
 
 function Feature({ titleKey, descriptionKey, icon }) {
   return (
@@ -78,6 +79,7 @@ export default function Home() {
       title="TelegramMediaRelayBot"
       description="Documentation for TelegramMediaRelayBot"
     >
+      <SEO />
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <div className={styles.logoContainer}>
