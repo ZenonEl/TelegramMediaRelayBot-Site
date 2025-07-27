@@ -468,5 +468,23 @@
   "theme.tags.tagsPageTitle": {
     "message": "Теги",
     "description": "The title of the tag list page"
+  },
+  "faq.category.getting-started": {
+    "message": "Начало работы"
+  },
+  "faq.category.features": {
+    "message": "Возможности"
+  },
+  "faq.category.configuration": {
+    "message": "Настройка"
+  },
+  "faq.category.security": {
+    "message": "Безопасность"
+  },
+  "faq.category.maintenance": {
+    "message": "Обслуживание"
+  },
+  "faq.category.troubleshooting": {
+    "message": "Решение проблем"
   }
 }

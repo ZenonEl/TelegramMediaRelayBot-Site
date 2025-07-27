@@ -468,5 +468,23 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "faq.category.getting-started": {
+    "message": "Getting Started"
+  },
+  "faq.category.features": {
+    "message": "Features"
+  },
+  "faq.category.configuration": {
+    "message": "Configuration"
+  },
+  "faq.category.security": {
+    "message": "Security"
+  },
+  "faq.category.maintenance": {
+    "message": "Maintenance"
+  },
+  "faq.category.troubleshooting": {
+    "message": "Troubleshooting"
   }
 }
