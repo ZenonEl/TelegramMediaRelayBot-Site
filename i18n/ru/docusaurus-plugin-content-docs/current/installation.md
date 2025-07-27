@@ -6,9 +6,9 @@
 | Компонент       | Версия       | Примечание                                  |
 |-----------------|--------------|---------------------------------------------|
 | .NET Runtime    | 8.0+         | Обязательно для запуска                    |
-| MySQL Server    | 8.0+         | Требуется для хранения данных              |
-| yt-dlp          | 2024.04.09+  | Должен быть рядом (в корне проекта) с исполняемым файлом |
-| gallery-dl      | 2024.04.09+  | Должен быть рядом (в корне проекта) с исполняемым файлом. Скачивается отдельно (не входит в релиз)|
+| MySQL Server    | 9.3+         | Требуется для хранения данных (также можно использовать SQLite)              |
+| yt-dlp          | 2025.04.09+  | Должен быть установлен в системе (или лежать в корне проекта с исполняемым файлом) |
+| gallery-dl      | 2025.04.09+  | Должен быть установлен в системе (или лежать в корне проекта с исполняемым файломю. Скачивается отдельно не входит в релиз) |
 
 ### Поддерживаемые ОС
 - **Linux** (x64): Для разработки и использования я использовал Linux Mint и CachyOS. Поэтому, похожие дистрибутивы должны также работать, главное наличие основных компонентов в вашей системе
@@ -22,7 +22,7 @@
 ### 1. Установка зависимостей для запуска из исходников
 
 #### Для Debian/Ubuntu:
-```bash showLineNumbers 
+```bash showLineNumbers
 # Установка .NET 8
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -56,7 +56,7 @@ dotnet run --project TelegramMediaRelayBot.csproj
 ```
 
 #### Для Fedora/RHEL:
-```bash showLineNumbers 
+```bash showLineNumbers
 # Установка .NET 8
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 sudo dnf install -y dotnet-sdk-8.0 git mysql-server libicu
@@ -75,10 +75,10 @@ dotnet run --project TelegramMediaRelayBot.csproj
 #### 1.1 Запуск через исполняемый файл
 
 1. Скачайте последний [релиз](https://github.com/ZenonEl/TelegramMediaRelayBot/releases/latest)
-2. Распакуйте архив в удобное место 
+2. Распакуйте архив в удобное место
 3. Создайте файл appsettings.json:
     - Используйте пример конфигурации из файла appsettings.json.example
-4. Скачайте gallery-dl:
+4. Скачайте gallery-dl (если хотите его использовать):
     ```bash showLineNumbers
     wget https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.bin -O gallery-dl.bin
     chmod +x gallery-dl
@@ -122,6 +122,16 @@ FLUSH PRIVILEGES;
 {
     "AppSettings": {
         "SqlConnectionString": "Server=localhost;Database=TelegramMediaRelayBot;User ID=media_bot;Password=StrongPassword123!;",
+        "DatabaseType": "MySQL",
+        "DatabaseName": "TelegramMediaRelayBot"
+    }
+}
+
+# Также поддерживается использование SQLite
+{
+    "AppSettings": {
+        "SqlConnectionString": "Data Source=sqlite.db",
+        "DatabaseType": "SQLite",
         "DatabaseName": "TelegramMediaRelayBot"
     }
 }
@@ -147,16 +157,20 @@ nano ./appsettings.json
     - В остальном же, кроме значений в блоке "AppSettings" больше можно ничего не менять.
     - Токен для "TelegramBotToken" можно получить только в официальном боте телеграм [BotFather](https://t.me/BotFather)
     - Для блока "AccessPolicy" имеется отдельное руководство.
+    - AccessDeniedMessageContact поле в котором вы можете указать контакт для обратной связи, если планируете оставить бота закрытым для новых пользователей.
+
 ```json showLineNumbers
 {
     "AppSettings": {
         "TelegramBotToken": "1234:abcd",
-        "SqlConnectionString": "Server=localhost;Database=TelegramMediaRelayBot;User ID=media_bot;Password=StrongPassword123!;",
+        "SqlConnectionString": "Server=localhost;Database=DatabaseName;User ID=UserName;Password=UserPassword;",
         "DatabaseName": "TelegramMediaRelayBot",
+        "DatabaseType": "MySql",
         "Language": "en-US",
         "Proxy": "socks5://127.0.0.1:9050",
         "UserUnMuteCheckInterval": 20,
-        "UseGalleryDl": true
+        "UseGalleryDl": true,
+        "AccessDeniedMessageContact": ""
     },
     "Tor": {
         "Enabled": true,
@@ -176,15 +190,15 @@ nano ./appsettings.json
         "ShowVideoUploadProgress": false
     },
     "AccessPolicy": {
-        "Enabled": true,
+        "Enabled": false,
 
         "NewUsersPolicy": {
-            "Enabled": true,
+            "Enabled": false,
             "ShowAccessDeniedMessage": false,
 
             "AllowNewUsers": true,
             "AllowRules": {
-                "AllowAll": false,
+                "AllowAll": true,
                 "WhitelistedReferrerIds": [],
                 "BlacklistedReferrerIds": []
             }

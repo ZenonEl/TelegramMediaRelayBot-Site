@@ -15,6 +15,8 @@
 1. **Установите Tor**, если он ещё не установлен:
    ```bash showLineNumbers
    sudo apt update && sudo apt install tor
+   # Или для Arch Linux:
+   sudo pacman -S tor
    ```
 
 2. **Создайте хэшированный пароль**:

@@ -15,6 +15,8 @@ To create a hashed password (`HashedControlPassword`), follow these steps:
 1. **Install Tor** if it’s not already installed:
    ```bash showLineNumbers
    sudo apt update && sudo apt install tor
+   # Or for Arch Linux:
+   sudo pacman -S tor
    ```
 
 2. **Generate a Hashed Password**:
