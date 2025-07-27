@@ -26,7 +26,7 @@ const Testimonials = () => {
       text: "Устал постоянно скачивать видео с YouTube и пересылать коллегам вручную. С этим ботом просто кидаю ссылку с хештегом #work, и он сам всё скачивает и отправляет команде. Экономлю кучу времени каждый день!",
       platform: "github",
       verified: true,
-      date: "2024-01-15",
+      date: "2025-01-15",
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const Testimonials = () => {
       text: 'My friends were always asking me to send them TikTok videos because they weren\'t registered there. Now I just throw links to the bot and it automatically forwards content to everyone. No more "can you send me this video?" messages!',
       platform: "vk",
       verified: true,
-      date: "2024-01-20",
+      date: "2025-01-20",
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ const Testimonials = () => {
       text: "Наконец-то решение для семейного чата! Родители постоянно просили скачать им что-то с YouTube или отправить мемы из Reddit. Теперь бот всё делает автоматически. Плюс поддержка Tor для приватности - отличная фича.",
       platform: "telegram",
       verified: true,
-      date: "2024-01-25",
+      date: "2025-01-25",
     },
     {
       id: 4,
@@ -59,7 +59,7 @@ const Testimonials = () => {
       text: "The unique link system for adding contacts is genius! No more sharing usernames or phone numbers. Just exchange links once and you're connected. Perfect for professional networks where you want to share content but maintain privacy.",
       platform: "github",
       verified: true,
-      date: "2024-02-01",
+      date: "2025-02-01",
     },
     {
       id: 5,
@@ -70,7 +70,7 @@ const Testimonials = () => {
       text: "Группировка контактов по категориям #family, #friends, #work - это находка! Теперь смешные видео идут друзьям, а полезные туториалы коллегам. Бот понимает контекст по хештегам и никого не спамит лишним контентом.",
       platform: "github",
       verified: true,
-      date: "2024-02-10",
+      date: "2025-02-10",
     },
   ];
 

@@ -80,11 +80,6 @@ const SEO = ({
             price: "0",
             priceCurrency: "USD",
           },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "150",
-          },
           keywords: keywords,
           programmingLanguage: ".NET",
           codeRepository: "https://github.com/ZenonEl/TelegramMediaRelayBot",

@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faChevronUp,
-  faQuestionCircle,
   faRocket,
+  faGlobe,
   faCog,
   faShieldAlt,
   faDownload,
-  faGlobe,
+  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./FAQ.module.css";
-import Translate from "@docusaurus/Translate";
+import Translate, { translate } from "@docusaurus/Translate";
 
 const FAQ = () => {
   const [openItem, setOpenItem] = useState(null);
@@ -106,27 +106,55 @@ const FAQ = () => {
   const categories = [
     {
       id: "getting-started",
-      name: "Начало работы",
+      name: translate({
+        id: "faq.category.getting-started",
+        message: "Getting Started",
+      }),
       icon: faRocket,
       color: "#28a745",
     },
-    { id: "features", name: "Возможности", icon: faGlobe, color: "#007bff" },
-    { id: "configuration", name: "Настройка", icon: faCog, color: "#ffc107" },
+    {
+      id: "features",
+      name: translate({
+        id: "faq.category.features",
+        message: "Features",
+      }),
+      icon: faGlobe,
+      color: "#007bff",
+    },
+    {
+      id: "configuration",
+      name: translate({
+        id: "faq.category.configuration",
+        message: "Configuration",
+      }),
+      icon: faCog,
+      color: "#ffc107",
+    },
     {
       id: "security",
-      name: "Безопасность",
+      name: translate({
+        id: "faq.category.security",
+        message: "Security",
+      }),
       icon: faShieldAlt,
       color: "#dc3545",
     },
     {
       id: "maintenance",
-      name: "Обслуживание",
+      name: translate({
+        id: "faq.category.maintenance",
+        message: "Maintenance",
+      }),
       icon: faDownload,
       color: "#6f42c1",
     },
     {
       id: "troubleshooting",
-      name: "Решение проблем",
+      name: translate({
+        id: "faq.category.troubleshooting",
+        message: "Troubleshooting",
+      }),
       icon: faQuestionCircle,
       color: "#fd7e14",
     },
