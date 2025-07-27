@@ -8,6 +8,7 @@ const config = {
   favicon: "img/favicon.ico",
   url: "https://zenonel.github.io",
   baseUrl: "/TelegramMediaRelayBot-Site/",
+  trailingSlash: false,
   organizationName: "ZenonEl",
   projectName: "TelegramMediaRelayBot-Site",
   onBrokenLinks: "throw",
@@ -115,7 +116,19 @@ const config = {
       },
     },
   },
-
+  scripts: [
+    {
+      src: "https://app.rybbit.io/api/script.js",
+      "data-site-id": "430",
+      defer: true,
+    },
+    {
+      src: "https://cloud.umami.is/script.js",
+      "data-website-id": "48d2f76f-9d85-4492-9e52-4ebfa4128c44",
+      defer: true,
+      async: true,
+    },
+  ],
   presets: [
     [
       "classic",
