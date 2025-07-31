@@ -128,6 +128,11 @@ const config = {
       defer: true,
       async: true,
     },
+    {
+      src: "https://zenonelumami-jztp5tlau-zenonels-projects.vercel.app/script.js",
+      "data-website-id": "6c7f8ba2-4aa6-4c22-9d92-615c4c7ea6ab",
+      defer: true,
+    },
   ],
   presets: [
     [
